@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f5f7;
+  color: #222;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    sans-serif;
+  line-height: 1.8;
+}
+
+a {
+  color: #155f8a;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.site-header {
+  background: #fff;
+  border-top: 6px solid #2d6b52;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-inner {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.site-title {
+  display: block;
+  margin-bottom: 15px;
+  color: #222;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 30px auto;
+}
+
+.panel {
+  margin-bottom: 30px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #d5d5d5;
+}
+
+h1,
+h2 {
+  line-height: 1.4;
+}
+
+h2 {
+  padding: 10px 15px;
+  background: #fff;
+  border-left: 7px solid #2d6b52;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.menu-grid a {
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  text-decoration: none;
+}
+
+.timeline {
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  padding: 18px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.missing {
+  color: #8b0000;
+  font-weight: bold;
+}
+
+.document {
+  margin-bottom: 25px;
+  padding: 30px;
+  background: #eee9dc;
+  border: 1px solid #aaa18f;
+  font-family: "Yu Mincho", serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.code-area {
+  margin-top: 25px;
+}
+
+.code-area input {
+  width: 220px;
+  padding: 10px;
+}
+
+.code-area button,
+.next-button,
+.main-button {
+  padding: 10px 18px;
+  border: 0;
+  background: #2d6b52;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error {
+  color: #b00020;
+}
+
+.intro-page {
+  min-height: 100vh;
+  background: #111;
+  color: #eee;
+}
+
+.intro-box {
+  width: min(700px, 88%);
+  margin: 0 auto;
+  padding: 90px 0;
+}
+
+.intro-text {
+  margin-bottom: 35px;
+  font-size: 19px;
+  white-space: pre-line;
+}
+
+.ending-page {
+  min-height: 100vh;
+  background: #111;
+  color: #eee;
+}
+
+.ending-box {
+  width: min(700px, 88%);
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .document {
+    padding: 20px;
+  }
+}
