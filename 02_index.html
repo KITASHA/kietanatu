@@ -11,53 +11,146 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="site-title" href="02_index.html">
-        月見町役場
+<div id="header"></div>
+
+<div class="page-layout">
+
+    <div id="sidebar"></div>
+
+    <main class="town-main">
+
+
+    <section class="hero-section">
+      <div class="hero-copy">
+        <p>山と川に囲まれた、小さな町。</p>
+        <h2>月明かりとともに暮らす町</h2>
+      </div>
+    </section>
+
+    <section class="important-section">
+      <h2 class="section-heading important-heading">
+        重要なお知らせ
+      </h2>
+
+      <div class="important-notice">
+        <span class="notice-label">防災</span>
+        <a href="#">
+          大雨に伴う河川水位の上昇にご注意ください
+        </a>
+      </div>
+    </section>
+
+    <div class="top-columns">
+
+      <section class="news-section">
+        <h2 class="section-heading">新着情報</h2>
+
+        <ul class="news-list">
+          <li>
+            <time datetime="2026-07-15">2026年7月15日</time>
+            <span class="news-category">町政</span>
+            <a href="03_history.html">
+              月見町史資料のデジタル公開について
+            </a>
+          </li>
+
+          <li>
+            <time datetime="2026-07-08">2026年7月8日</time>
+            <span class="news-category">観光</span>
+            <a href="#">
+              第52回 月見町納涼祭を開催します
+            </a>
+          </li>
+
+          <li>
+            <time datetime="2026-07-01">2026年7月1日</time>
+            <span class="news-category">広報</span>
+            <a href="04_newsletter.html">
+              広報つきみ7月号を公開しました
+            </a>
+          </li>
+
+          <li>
+            <time datetime="2026-06-24">2026年6月24日</time>
+            <span class="news-category">議会</span>
+            <a href="05_council.html">
+              町議会会議録を更新しました
+            </a>
+          </li>
+
+          <li>
+            <time datetime="2026-06-10">2026年6月10日</time>
+            <span class="news-category">生活</span>
+            <a href="#">
+              ごみ収集日程の変更について
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="side-menu">
+        <h2 class="section-heading">よく利用される情報</h2>
+
+        <div class="quick-links">
+          <a href="#">ごみ・リサイクル</a>
+          <a href="#">戸籍・住民票</a>
+          <a href="#">転入・転出</a>
+          <a href="#">子育て支援</a>
+          <a href="#">防災情報</a>
+          <a href="#">観光案内</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <section class="town-info-section">
+      <h2 class="section-heading">月見町について</h2>
+
+      <div class="town-info-grid">
+        <div class="town-info-card">
+          <span>人口</span>
+          <strong>18,542人</strong>
+          <small>令和8年7月1日現在</small>
+        </div>
+
+        <div class="town-info-card">
+          <span>世帯数</span>
+          <strong>7,911世帯</strong>
+          <small>令和8年7月1日現在</small>
+        </div>
+
+        <div class="town-info-card">
+          <span>面積</span>
+          <strong>34.2km²</strong>
+          <small>山林を含む</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner-section">
+      <a href="03_history.html" class="town-banner">
+        <span>月見町を知る</span>
+        <strong>町の歴史と沿革</strong>
       </a>
 
-      <nav>
-        <a href="02_index.html">トップ</a>
-        <a href="03_history.html">町の歴史</a>
-        <a href="04_newsletter.html">広報誌</a>
-        <a href="05_council.html">議会資料</a>
-      </nav>
-    </div>
-  </header>
+      <a href="04_newsletter.html" class="town-banner">
+        <span>町からのお知らせ</span>
+        <strong>広報つきみ</strong>
+      </a>
 
-  <main class="container">
-
-    <section class="panel">
-      <h1>自然と文化が息づくまち 月見町</h1>
-
-      <p>
-        月見町の行政情報、暮らし、観光に関する情報をご案内します。
-      </p>
+      <a href="05_council.html" class="town-banner">
+        <span>町政情報</span>
+        <strong>町議会資料</strong>
+      </a>
     </section>
 
-    <section>
-      <h2>町からのお知らせ</h2>
+   </main>
 
-      <div class="panel">
-        <p>2026年7月1日　町史資料デジタル公開のお知らせ</p>
-        <p>2026年6月21日　月見町納涼祭のお知らせ</p>
-        <p>2026年6月10日　議会資料を更新しました</p>
-      </div>
-    </section>
+</div>
 
-    <section>
-      <h2>町の情報</h2>
+<div id="footer"></div>
 
-      <div class="menu-grid">
-        <a href="03_history.html">町の歴史</a>
-        <a href="04_newsletter.html">広報誌アーカイブ</a>
-        <a href="05_council.html">議会資料</a>
-        <a href="#">町の紹介</a>
-      </div>
-    </section>
-
-  </main>
+<script src="js/include.js"></script>
 
 </body>
 </html>
