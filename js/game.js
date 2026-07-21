@@ -7,7 +7,7 @@ if (archiveButton) {
     const code = input.value.trim();
 
     if (code === "815") {
-      window.location.href = "archive.html";
+      window.location.href = "06_archive.html";
       return;
     }
 
