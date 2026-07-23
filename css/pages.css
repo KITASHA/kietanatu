@@ -1,0 +1,201 @@
+/* ==============================
+   歴史・広報など通常ページ
+================================ */
+
+/* 通常ページの共通セクション */
+.news-section,
+.history-introduction,
+.history-section,
+.history-documents,
+.related-pages {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #dce2df;
+}
+
+/* 最後のセクション */
+.news-section:last-of-type,
+.history-introduction:last-of-type,
+.history-section:last-of-type,
+.history-documents:last-of-type,
+.related-pages:last-of-type {
+  margin-bottom: 0;
+}
+
+/* セクション見出し */
+.news-section .section-heading,
+.history-introduction .section-heading,
+.history-section .section-heading,
+.history-documents .section-heading,
+.related-pages .section-heading {
+  margin: 0 0 20px;
+}
+
+/* 通常ページ本文 */
+.news-section p {
+  margin: 0 0 12px;
+  line-height: 1.8;
+}
+
+.news-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* 歴史ページ導入文 */
+.history-introduction p {
+  margin: 0 0 12px;
+  line-height: 1.9;
+}
+
+.history-introduction p:last-child {
+  margin-bottom: 0;
+}
+
+/* 沿革一覧 */
+.history-timeline {
+  border-top: 1px solid #ccc;
+}
+
+.history-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: start;
+  gap: 24px;
+  padding: 20px 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.history-year {
+  color: #24634f;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.history-content h3 {
+  margin: 0 0 6px;
+  color: #222;
+  font-size: 18px;
+}
+
+.history-content p {
+  margin: 0;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* 資料一覧 */
+.document-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.document-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  background: #f7f7f4;
+  border: 1px solid #ddd;
+}
+
+.document-info h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.document-info p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.document-link {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  background: #24634f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.document-link:hover {
+  background: #174c3c;
+}
+
+/* 関連ページ一覧 */
+.related-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.related-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.related-list li:first-child {
+  padding-top: 0;
+}
+
+.related-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.related-list a {
+  display: block;
+  margin-bottom: 5px;
+  color: #1d5f88;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.related-list a:hover {
+  text-decoration: underline;
+}
+
+.related-list span {
+  display: block;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 旧カード型関連リンク */
+.related-link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.related-link-card {
+  display: block;
+  padding: 18px 20px;
+  background: #f7f7f4;
+  color: #222;
+  text-decoration: none;
+  border: 1px solid #d7d7d7;
+}
+
+.related-link-card span {
+  display: block;
+  margin-bottom: 4px;
+  color: #666;
+  font-size: 13px;
+}
+
+.related-link-card strong {
+  display: block;
+  color: #24634f;
+  font-size: 18px;
+}
+
+.related-link-card:hover {
+  background: #eef4f1;
+  border-color: #24634f;
+}

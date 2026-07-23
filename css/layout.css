@@ -1,0 +1,169 @@
+/* ==============================
+   ヘッダー・ナビゲーション
+================================ */
+.site-header {
+  background: #fff;
+  border-top: 6px solid #2d6b52;
+  border-bottom: 1px solid #ccc;
+}
+
+.site-header .town-header .header-inner {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.site-title {
+  display: block;
+  margin-bottom: 15px;
+  color: #222;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.town-header {
+  background: #fff;
+  border-top: 6px solid #24634f;
+}
+
+.header-inner {
+  width: min(1100px, 92%);
+  min-height: 110px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.town-subtitle {
+  margin: 0 0 3px;
+  color: #567168;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+
+.town-title {
+  margin: 0;
+  color: #244f42;
+  font-size: 34px;
+  letter-spacing: 0.12em;
+}
+
+.header-tools {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+}
+
+.header-tools a {
+  color: #445c55;
+}
+
+.global-nav {
+  background: #24634f;
+}
+
+.nav-inner {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.global-nav a {
+  padding: 15px 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.global-nav a:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.global-nav a:hover {
+  background: #174c3c;
+}
+
+/* ==============================
+   メイン領域
+================================ */
+.container {
+  width: min(900px, 92%);
+  margin: 30px auto;
+}
+
+.town-main {
+  width: min(1100px, 92%);
+  margin: 30px auto 70px;
+}
+
+.page-layout {
+  width: 100%;
+}
+
+/* ==============================
+   フッター
+================================ */
+.town-footer {
+  width: 100%;
+  margin-top: 60px;
+  padding: 0;
+  background: #245b4d;
+  color: #fff;
+}
+
+.town-footer-inner {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+}
+
+.town-footer-info {
+  width: 100%;
+}
+
+.town-footer-info h2 {
+  margin: 0 0 12px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.town-footer-info p {
+  margin: 4px 0;
+  line-height: 1.7;
+}
+
+.fiction-notice {
+  margin: 0;
+  padding: 16px 24px;
+  background: #f4f1e9;
+  color: #333;
+  text-align: center;
+}
+
+.fiction-notice p {
+  margin: 4px 0;
+  line-height: 1.7;
+}
+
+.footer-bottom {
+  padding: 14px 24px;
+  background: #183f35;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
