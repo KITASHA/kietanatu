@@ -1,26 +1,24 @@
-async function include(id, file) {
-    const response = await fetch(file);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadComponent("header", "components/header.html");
+  await loadComponent("footer", "components/footer.html");
+});
+
+async function loadComponent(id, filePath) {
+  const target = document.getElementById(id);
+
+  if (!target) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${filePath}?v=${Date.now()}`);
 
     if (!response.ok) {
-        console.error(file + " の読み込みに失敗しました");
-        return;
+      throw new Error(`${filePath}の読み込みに失敗しました`);
     }
 
-    document.getElementById(id).innerHTML = await response.text();
+    target.innerHTML = await response.text();
+  } catch (error) {
+    console.error(error);
+  }
 }
-
-window.addEventListener("DOMContentLoaded", async () => {
-
-    if (document.getElementById("header")) {
-        await include("header", "components/header.html");
-    }
-
-    if (document.getElementById("footer")) {
-        await include("footer", "components/footer.html");
-    }
-
-    if (document.getElementById("sidebar")) {
-        await include("sidebar", "components/sidebar.html");
-    }
-
-});
