@@ -6,8 +6,8 @@ if (archiveButton) {
     const errorMessage = document.getElementById("error-message");
     const code = input.value.trim();
 
-    if (code === "815") {
-      window.location.href = "06_archive.html";
+    if (code === "0815") {
+      window.location.href = "archive.html";
       return;
     }
 

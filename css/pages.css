@@ -199,3 +199,8 @@
   background: #eef4f1;
   border-color: #24634f;
 }
+
+.hidden-note {
+  color: transparent;
+  user-select: text;
+}
