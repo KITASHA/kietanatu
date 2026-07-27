@@ -52,3 +52,127 @@
   font-size: 19px;
   white-space: pre-line;
 }
+
+/* ==============================
+   エンディングページ
+================================ */
+
+body.ending-page {
+  min-height: 100vh;
+  margin: 0;
+  background: #101010;
+  color: #eeeeee;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    "Meiryo",
+    sans-serif;
+  line-height: 1.9;
+}
+
+.ending-container {
+  width: min(720px, 88%);
+  margin: 0 auto;
+  padding: 90px 0 110px;
+}
+
+.ending-section {
+  margin-bottom: 70px;
+}
+
+.ending-section p {
+  margin: 0 0 24px;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.ending-small {
+  margin-bottom: 12px;
+  color: #9fa8a3;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+
+.ending-title {
+  margin: 0 0 42px;
+  padding-bottom: 18px;
+  color: #ffffff;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid #555555;
+}
+
+.ending-last {
+  margin-bottom: 0;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.ending-end {
+  margin-top: 55px !important;
+  margin-bottom: 40px !important;
+  color: #bbbbbb;
+  font-family: serif;
+  font-size: 18px !important;
+  letter-spacing: 0.3em;
+}
+
+.ending-game-title {
+  margin: 0 0 15px;
+  padding: 0;
+  background: none;
+  color: #ffffff;
+  font-size: clamp(27px, 5vw, 38px);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border: 0;
+}
+
+.ending-thanks {
+  margin-bottom: 45px !important;
+  color: #9fa8a3;
+  font-family: serif;
+  font-size: 15px !important;
+  letter-spacing: 0.12em;
+}
+
+.ending-page .main-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: transparent;
+  color: #eeeeee;
+  text-decoration: none;
+  border: 1px solid #777777;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.ending-page .main-button:hover {
+  background: #eeeeee;
+  color: #111111;
+}
+
+/* スマホ */
+@media screen and (max-width: 700px) {
+  .ending-container {
+    width: 88%;
+    padding: 60px 0 80px;
+  }
+
+  .ending-section {
+    margin-bottom: 55px;
+  }
+
+  .ending-section p {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .ending-title {
+    margin-bottom: 32px;
+  }
+}
