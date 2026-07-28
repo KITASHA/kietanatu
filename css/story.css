@@ -488,7 +488,32 @@ body.survey-page {
     margin-top: 12px;
   }
 }
-
 [hidden] {
   display: none !important;
+}
+
+.subject-search-form {
+  margin-top: 24px;
+}
+
+.subject-search-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.subject-search-input {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 10px;
+  border: 1px solid #777;
+  font-size: 16px;
+}
+
+.subject-search-message {
+  min-height: 1.5em;
+  margin-top: 16px;
 }

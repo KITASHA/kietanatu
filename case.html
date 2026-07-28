@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>対象者記録｜関係者用資料</title>
+  <title>対象者記録照会</title>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,234 +14,237 @@
 
   <main class="container">
 
-    <h1>対象者記録</h1>
+    <p class="restricted-label">
+      関係者限定
+    </p>
+
+    <h1>対象者記録照会</h1>
 
     <section class="document">
 
-      <h2>対象者管理台帳</h2>
+      <h2>対象者データベース</h2>
 
       <p>
-        月見町納涼祭事故に伴う記憶安定化処置対象者の経過記録。
+        対象者固有の検索キーを入力してください。
       </p>
 
-      <p>
-        本資料の複製、転載および第三者への開示を禁ずる。
-      </p>
+      <div class="subject-search-form">
 
-      <table class="history-table">
+        <label for="subject-search-key">
+          検索キー
+        </label>
 
-        <thead>
-          <tr>
-            <th>管理番号</th>
-            <th>処置状況</th>
-            <th>現在の状態</th>
-          </tr>
-        </thead>
+        <input
+          type="password"
+          id="subject-search-key"
+          class="subject-search-input"
+          inputmode="numeric"
+          autocomplete="off"
+        >
 
-        <tbody>
+        <button
+          type="button"
+          id="subject-search-button"
+          class="main-button"
+        >
+          検索
+        </button>
 
-          <tr>
-            <td>No.011</td>
-            <td>完了</td>
-            <td>安定</td>
-          </tr>
+        <p
+          id="subject-search-message"
+          class="subject-search-message"
+          aria-live="polite"
+        ></p>
 
-          <tr>
-            <td>No.012</td>
-            <td>完了</td>
-            <td>安定</td>
-          </tr>
-
-          <tr>
-            <td>No.013</td>
-            <td>完了</td>
-            <td>安定</td>
-          </tr>
-
-          <tr>
-            <td>No.014</td>
-            <td>完了</td>
-            <td>安定</td>
-          </tr>
-
-          <tr>
-            <td>No.015</td>
-            <td>完了</td>
-            <td>経過観察</td>
-          </tr>
-
-          <tr>
-            <td>No.016</td>
-            <td>完了</td>
-            <td>経過観察</td>
-          </tr>
-
-          <tr
-            id="subject-017-row"
-            class="subject-select-row"
-            tabindex="0"
-            role="button"
-            aria-controls="subject-authentication"
-            aria-expanded="false"
-          >
-            <td>
-              <span class="subject-number-link">
-                No.017
-              </span>
-            </td>
-
-            <td>再処置予定</td>
-            <td>補完現象確認</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-      <p class="document-note">
-        管理番号を選択すると、詳細記録を確認できます。
-      </p>
+      </div>
 
     </section>
 
-    <!-- No.017選択後に表示 -->
     <section
-      id="subject-authentication"
+      id="subject-search-result"
       class="document"
       hidden
     >
 
-      <h2>対象者記録認証</h2>
+      <h2>検索結果</h2>
 
       <p>
-        対象者 No.017 の記録は閲覧が制限されています。
+        1件の記録が見つかりました。
       </p>
 
       <p>
-        本人確認用パスワードを入力してください。
+        管理番号：No.017
       </p>
 
-      <div class="subject-auth-form">
+      <p>
+        対象区分：記憶安定化処置対象
+      </p>
 
-        <label for="subject-password">
-          パスワード
-        </label>
+      <p>
+        処置状況：実施済
+      </p>
 
-        <div class="subject-auth-input">
+      <p>
+        現在の状態：補完現象確認
+      </p>
 
-          <input
-            type="password"
-            id="subject-password"
-            maxlength="8"
-            inputmode="numeric"
-            autocomplete="off"
-            placeholder="8桁の数字"
-          >
+      <p>
+        最終更新：令和8年7月15日
+      </p>
 
-          <button
-            type="button"
-            id="subject-password-button"
-            class="main-button"
-          >
-            記録を開く
-          </button>
-
-        </div>
-
-      </div>
-
-      <p
-        id="subject-password-error"
-        class="subject-password-error"
-        aria-live="polite"
-      ></p>
+      <button
+        type="button"
+        id="subject-detail-button"
+        class="next-button"
+      >
+        詳細記録を開く
+      </button>
 
     </section>
 
-    <!-- パスワード認証後に表示 -->
-    <div id="subject-017-record" hidden>
+    <section
+      id="subject-detail-1"
+      class="document"
+      hidden
+    >
 
-      <section class="document">
+      <h2>対象者 No.017</h2>
 
-        <h2>対象者 No.017</h2>
+      <p>
+        管理番号：No.017
+      </p>
 
-        <p>
-          氏名：非公開
-        </p>
+      <p>
+        処置実施日：平成16年8月16日
+      </p>
 
-        <p>
-          処置実施日：平成16年8月16日
-        </p>
+      <p>
+        処置区分：記憶安定化処置
+      </p>
 
-        <p>
-          現在の状態：補完現象継続中
-        </p>
+      <p>
+        現在の状態：補完現象継続中
+      </p>
 
-      </section>
+      <button
+        type="button"
+        id="subject-next-button"
+        class="next-button"
+      >
+        次の記録を開く
+      </button>
 
-      <section class="document">
+    </section>
 
-        <h2>証言記録</h2>
+    <section
+      id="subject-detail-2"
+      class="document"
+      hidden
+    >
 
-        <p>
-          対象者は処置後も、事故当日に存在しない人物と
-          行動していたと繰り返し証言している。
-        </p>
+      <h2>経過記録</h2>
 
-        <blockquote>
-          「祭りの日、友人と一緒に花火を見た。」
-        </blockquote>
+      <p>
+        対象者は処置後も、事故当日に特定の人物と
+        行動していたとの証言を繰り返している。
+      </p>
 
-        <blockquote>
-          「事故が起きたとき、あいつはすぐ隣にいた。」
-        </blockquote>
+      <p>
+        当該人物について住民記録、戸籍記録、
+        学校記録および事故当日の参加者名簿との
+        照合を実施した。
+      </p>
 
-        <blockquote>
-          「みんなも、あいつのことを知っていたはずだ。」
-        </blockquote>
+      <p>
+        いずれの記録にも該当する人物は
+        確認されなかった。
+      </p>
 
-      </section>
+      <button
+        type="button"
+        id="subject-testimony-button"
+        class="next-button"
+      >
+        証言記録を開く
+      </button>
 
-      <section class="document">
+    </section>
 
-        <h2>照合結果</h2>
+    <section
+      id="subject-detail-3"
+      class="document"
+      hidden
+    >
 
-        <p>
-          対象者の証言をもとに、該当人物の記録を照合した。
-        </p>
+      <h2>証言記録</h2>
 
-        <p>
-          住民記録：該当なし
-        </p>
+      <p>
+        「祭りの日、あの人と一緒に花火を見た。」
+      </p>
 
-        <p>
-          戸籍記録：該当なし
-        </p>
+      <p>
+        「事故が起きたときも、すぐ隣にいた。」
+      </p>
 
-        <p>
-          学校記録：該当なし
-        </p>
+      <p>
+        「みんなも、あの人のことを知っていたはずだ。」
+      </p>
 
-        <p>
-          医療記録：該当なし
-        </p>
+      <button
+        type="button"
+        id="subject-result-button"
+        class="next-button"
+      >
+        照合結果を開く
+      </button>
 
-        <p>
-          事故当日の参加者名簿：該当なし
-        </p>
+    </section>
 
-        <p>
-          以上の結果から、対象者の証言する人物は
-          実在しないものと判断する。
-        </p>
+    <section
+      id="subject-detail-4"
+      class="document"
+      hidden
+    >
 
-        <a class="main-button" href="ending.html">
-          最終記録を開く
-        </a>
+      <h2>照合結果</h2>
 
-      </section>
+      <p>
+        住民記録：該当なし
+      </p>
 
-    </div>
+      <p>
+        戸籍記録：該当なし
+      </p>
+
+      <p>
+        学校記録：該当なし
+      </p>
+
+      <p>
+        医療記録：該当なし
+      </p>
+
+      <p>
+        事故当日の参加者名簿：該当なし
+      </p>
+
+      <p>
+        以上の結果から、対象者が証言する人物は
+        実在しないものとして処理する。
+      </p>
+
+      <p>
+        ただし、対象者の補完現象は現在も継続している。
+      </p>
+
+      <a
+        class="main-button"
+        href="ending.html"
+      >
+        最終記録を開く
+      </a>
+
+    </section>
 
     <p class="back-link">
       <a href="archive.html">
@@ -251,8 +254,7 @@
 
   </main>
 
-  <script src="js/game.js"></script>
-
+  <script src="js/case.js"></script>
 </body>
 
 </html>

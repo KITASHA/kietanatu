@@ -36,24 +36,24 @@ nextButtons.forEach((button) => {
     button.disabled = true;
   });
 });
-
 document.addEventListener("DOMContentLoaded", () => {
-  setupSubject017Authentication();
+  setupSubject017Search();
 });
 
-function setupSubject017Authentication() {
+function setupSubject017Search() {
   const subjectRow = document.getElementById("subject-017-row");
-  const authenticationSection = document.getElementById(
-    "subject-authentication"
+  const searchSection = document.getElementById("subject-search");
+
+  const searchKeyInput = document.getElementById(
+    "subject-search-key"
   );
 
-  const passwordInput = document.getElementById("subject-password");
-  const passwordButton = document.getElementById(
-    "subject-password-button"
+  const searchButton = document.getElementById(
+    "subject-search-button"
   );
 
-  const passwordError = document.getElementById(
-    "subject-password-error"
+  const searchError = document.getElementById(
+    "subject-search-error"
   );
 
   const subjectRecord = document.getElementById(
@@ -62,126 +62,108 @@ function setupSubject017Authentication() {
 
   if (
     !subjectRow ||
-    !authenticationSection ||
-    !passwordInput ||
-    !passwordButton ||
+    !searchSection ||
+    !searchKeyInput ||
+    !searchButton ||
     !subjectRecord
   ) {
     return;
   }
 
-  /*
-   * No.017を選択したとき
-   */
-  subjectRow.addEventListener("click", openAuthentication);
+  subjectRow.addEventListener("click", openSearch);
 
   subjectRow.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      openAuthentication();
+      openSearch();
     }
   });
 
-  /*
-   * 認証ボタン
-   */
-  passwordButton.addEventListener("click", checkPassword);
+  searchButton.addEventListener("click", searchSubject);
 
-  /*
-   * Enterキーでも認証
-   */
-  passwordInput.addEventListener("keydown", (event) => {
+  searchKeyInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      checkPassword();
+      searchSubject();
     }
   });
 
-  /*
-   * 入力中はエラーを消す
-   */
-  passwordInput.addEventListener("input", () => {
-    if (passwordError) {
-      passwordError.textContent = "";
+  searchKeyInput.addEventListener("input", () => {
+    if (searchError) {
+      searchError.textContent = "";
     }
   });
 
-  function openAuthentication() {
-    authenticationSection.hidden = false;
+  function openSearch() {
+    searchSection.hidden = false;
 
-    subjectRow.setAttribute("aria-expanded", "true");
+    subjectRow.setAttribute(
+      "aria-expanded",
+      "true"
+    );
 
-    authenticationSection.scrollIntoView({
+    searchSection.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
 
     window.setTimeout(() => {
-      passwordInput.focus();
+      searchKeyInput.focus();
     }, 400);
   }
 
-  function checkPassword() {
+  function searchSubject() {
     /*
-     * survey.jsで保存した生年月日
+     * survey.jsで保存した生年月日。
      * 例：20040815
      */
-    const savedPassword = sessionStorage.getItem(
+    const correctSearchKey = sessionStorage.getItem(
       "playerBirthDate"
     );
 
-    /*
-     * 数字以外を除去
-     */
-    const enteredPassword = passwordInput.value.replace(
+    const enteredSearchKey = searchKeyInput.value.replace(
       /\D/g,
       ""
     );
 
-    if (!savedPassword) {
-      if (passwordError) {
-        passwordError.textContent =
-          "本人確認情報を取得できません。アンケート回答後に、再度アクセスしてください。";
-      }
+    if (!correctSearchKey) {
+      showSearchError(
+        "検索キー情報を取得できません。最初のページから再度アクセスしてください。"
+      );
 
       return;
     }
 
-    if (enteredPassword.length !== 8) {
-      if (passwordError) {
-        passwordError.textContent =
-          "パスワードを8桁の数字で入力してください。";
-      }
+    if (!enteredSearchKey) {
+      showSearchError(
+        "検索キーを入力してください。"
+      );
 
-      passwordInput.focus();
+      searchKeyInput.focus();
       return;
     }
 
-    if (enteredPassword !== savedPassword) {
-      if (passwordError) {
-        passwordError.textContent =
-          "パスワードが一致しません。";
-      }
+    if (enteredSearchKey !== correctSearchKey) {
+      showSearchError(
+        "該当する対象者記録は確認できませんでした。"
+      );
 
-      passwordInput.select();
+      searchKeyInput.select();
       return;
     }
 
     /*
-     * 認証成功
+     * 検索成功
      */
-    if (passwordError) {
-      passwordError.textContent = "";
+    if (searchError) {
+      searchError.textContent = "";
     }
 
-    authenticationSection.hidden = true;
+    searchSection.hidden = true;
     subjectRecord.hidden = false;
 
-    /*
-     * 同じタブ内では認証済みにする
-     */
     sessionStorage.setItem(
-      "subject017Authenticated",
+      "subject017Searched",
       "true"
     );
 
@@ -191,14 +173,20 @@ function setupSubject017Authentication() {
     });
   }
 
+  function showSearchError(message) {
+    if (searchError) {
+      searchError.textContent = message;
+    }
+  }
+
   /*
-   * 一度認証済みなら、ページを再読み込みしても記録を表示
+   * 再読み込み後も照合結果を表示する場合
    */
-  const authenticated = sessionStorage.getItem(
-    "subject017Authenticated"
+  const searched = sessionStorage.getItem(
+    "subject017Searched"
   );
 
-  if (authenticated === "true") {
+  if (searched === "true") {
     subjectRecord.hidden = false;
   }
 }
