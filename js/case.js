@@ -11,68 +11,22 @@ document.addEventListener("DOMContentLoaded", () => {
     "subject-search-message"
   );
 
-  const searchResult = document.getElementById(
-    "subject-search-result"
-  );
-
-  const detailButton = document.getElementById(
-    "subject-detail-button"
-  );
-
-  const detail1 = document.getElementById(
-    "subject-detail-1"
-  );
-
-  const nextButton = document.getElementById(
-    "subject-next-button"
-  );
-
-  const detail2 = document.getElementById(
-    "subject-detail-2"
-  );
-
-  const testimonyButton = document.getElementById(
-    "subject-testimony-button"
-  );
-
-  const detail3 = document.getElementById(
-    "subject-detail-3"
-  );
-
-  const resultButton = document.getElementById(
-    "subject-result-button"
-  );
-
-  const detail4 = document.getElementById(
-    "subject-detail-4"
+  const subjectRecord = document.getElementById(
+    "subject-record"
   );
 
   searchButton.addEventListener("click", searchSubject);
 
   searchKeyInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
+      event.preventDefault();
       searchSubject();
     }
   });
 
   searchKeyInput.addEventListener("input", () => {
     searchMessage.textContent = "";
-  });
-
-  detailButton.addEventListener("click", () => {
-    showSection(detail1);
-  });
-
-  nextButton.addEventListener("click", () => {
-    showSection(detail2);
-  });
-
-  testimonyButton.addEventListener("click", () => {
-    showSection(detail3);
-  });
-
-  resultButton.addEventListener("click", () => {
-    showSection(detail4);
+    searchMessage.classList.remove("is-error");
   });
 
   function searchSubject() {
@@ -84,35 +38,46 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     if (!correctSearchKey) {
-      searchMessage.textContent =
-        "検索キー情報を取得できませんでした。";
+      hideRecord();
+
+      showError(
+        "検索キー情報を取得できませんでした。"
+      );
 
       return;
     }
 
     if (enteredSearchKey === "") {
-      searchMessage.textContent =
-        "検索キーを入力してください。";
+      hideRecord();
+
+      showError(
+        "検索キーを入力してください。"
+      );
 
       searchKeyInput.focus();
       return;
     }
 
     if (enteredSearchKey !== correctSearchKey) {
-      hideSearchRecords();
+      hideRecord();
 
-      searchMessage.textContent =
-        "該当する対象者記録は見つかりませんでした。";
+      showError(
+        "該当する対象者記録は見つかりませんでした。"
+      );
 
       searchKeyInput.select();
       return;
     }
 
     searchMessage.textContent = "";
+    searchMessage.classList.remove("is-error");
 
-    hideSearchRecords();
+    subjectRecord.hidden = false;
 
-    showSection(searchResult);
+    subjectRecord.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   }
 
   function getStoredBirthDate() {
@@ -128,20 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return storedValue.replace(/\D/g, "");
   }
 
-  function showSection(section) {
-    section.hidden = false;
-
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+  function showError(message) {
+    searchMessage.textContent = message;
+    searchMessage.classList.add("is-error");
   }
 
-  function hideSearchRecords() {
-    searchResult.hidden = true;
-    detail1.hidden = true;
-    detail2.hidden = true;
-    detail3.hidden = true;
-    detail4.hidden = true;
+  function hideRecord() {
+    subjectRecord.hidden = true;
   }
 });

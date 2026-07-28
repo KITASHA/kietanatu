@@ -40,6 +40,7 @@
           class="subject-search-input"
           inputmode="numeric"
           autocomplete="off"
+          maxlength="8"
         >
 
         <button
@@ -61,181 +62,120 @@
     </section>
 
     <section
-      id="subject-search-result"
+      id="subject-record"
       class="document"
       hidden
     >
 
-      <h2>検索結果</h2>
+      <p class="restricted-label">
+        機密資料
+      </p>
+
+      <h2>対象者記録 No.017</h2>
+
+      <div class="record-summary">
+
+        <p>
+          管理番号：No.017
+        </p>
+
+        <p>
+          氏名：非公開
+        </p>
+
+        <p>
+          処置実施日：平成16年8月16日
+        </p>
+
+        <p>
+          処置区分：記憶安定化処置
+        </p>
+
+        <p>
+          対応：経過観察継続
+        </p>
+
+      </div>
+
+      <h3>経過記録</h3>
 
       <p>
-        1件の記録が見つかりました。
+        対象者は処置後、祭り当日に
+        存在しない人物と行動していたと主張している。
       </p>
 
       <p>
-        管理番号：No.017
+        各種記録との照合を実施したが、
+        該当人物は確認されなかった。
       </p>
 
-      <p>
-        対象区分：記憶安定化処置対象
-      </p>
+      <h3>証言記録</h3>
 
-      <p>
-        処置状況：実施済
-      </p>
+      <blockquote class="subject-testimony">
 
-      <p>
-        現在の状態：補完現象確認
-      </p>
+        <p>
+          「あの人はどこへ行ったのか。」
+        </p>
 
-      <p>
-        最終更新：令和8年7月15日
-      </p>
+        <p>
+          「祭りの日は、ずっとすぐ隣にいた。」
+        </p>
 
-      <button
-        type="button"
-        id="subject-detail-button"
-        class="next-button"
-      >
-        詳細記録を開く
-      </button>
+        <p>
+          「あの日私は、あの人と花火を見た。」
+        </p>
 
-    </section>
+      </blockquote>
 
-    <section
-      id="subject-detail-1"
-      class="document"
-      hidden
-    >
+      <h3>照合結果</h3>
 
-      <h2>対象者 No.017</h2>
+      <dl class="record-check-list">
 
-      <p>
-        管理番号：No.017
-      </p>
+        <div>
+          <dt>住民記録</dt>
+          <dd>該当なし</dd>
+        </div>
 
-      <p>
-        処置実施日：平成16年8月16日
-      </p>
+        <div>
+          <dt>戸籍記録</dt>
+          <dd>該当なし</dd>
+        </div>
 
-      <p>
-        処置区分：記憶安定化処置
-      </p>
+        <div>
+          <dt>学校記録</dt>
+          <dd>該当なし</dd>
+        </div>
 
-      <p>
-        現在の状態：補完現象継続中
-      </p>
+        <div>
+          <dt>医療記録</dt>
+          <dd>該当なし</dd>
+        </div>
 
-      <button
-        type="button"
-        id="subject-next-button"
-        class="next-button"
-      >
-        次の記録を開く
-      </button>
+        <div>
+          <dt>事故当日参加者名簿</dt>
+          <dd>該当なし</dd>
+        </div>
 
-    </section>
+      </dl>
 
-    <section
-      id="subject-detail-2"
-      class="document"
-      hidden
-    >
+      <div class="record-judgment">
 
-      <h2>経過記録</h2>
+        <h3>判定</h3>
 
-      <p>
-        対象者は処置後も、事故当日に特定の人物と
-        行動していたとの証言を繰り返している。
-      </p>
+        <p>
+          該当人物の存在は確認できなかった。
+        </p>
 
-      <p>
-        当該人物について住民記録、戸籍記録、
-        学校記録および事故当日の参加者名簿との
-        照合を実施した。
-      </p>
+        <p>
+          対象者には補完現象が継続しているものと思われる。
+        </p>
 
-      <p>
-        いずれの記録にも該当する人物は
-        確認されなかった。
-      </p>
+        <p>
+          継続して経過観察を行うものとする。
+        </p>
 
-      <button
-        type="button"
-        id="subject-testimony-button"
-        class="next-button"
-      >
-        証言記録を開く
-      </button>
 
-    </section>
-
-    <section
-      id="subject-detail-3"
-      class="document"
-      hidden
-    >
-
-      <h2>証言記録</h2>
-
-      <p>
-        「祭りの日、あの人と一緒に花火を見た。」
-      </p>
-
-      <p>
-        「事故が起きたときも、すぐ隣にいた。」
-      </p>
-
-      <p>
-        「みんなも、あの人のことを知っていたはずだ。」
-      </p>
-
-      <button
-        type="button"
-        id="subject-result-button"
-        class="next-button"
-      >
-        照合結果を開く
-      </button>
-
-    </section>
-
-    <section
-      id="subject-detail-4"
-      class="document"
-      hidden
-    >
-
-      <h2>照合結果</h2>
-
-      <p>
-        住民記録：該当なし
-      </p>
-
-      <p>
-        戸籍記録：該当なし
-      </p>
-
-      <p>
-        学校記録：該当なし
-      </p>
-
-      <p>
-        医療記録：該当なし
-      </p>
-
-      <p>
-        事故当日の参加者名簿：該当なし
-      </p>
-
-      <p>
-        以上の結果から、対象者が証言する人物は
-        実在しないものとして処理する。
-      </p>
-
-      <p>
-        ただし、対象者の補完現象は現在も継続している。
-      </p>
+      </div>
 
       <a
         class="main-button"
