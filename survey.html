@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>プレイ前アンケート｜消えた夏の思い出</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="survey-page">
+
+  <main class="survey-container">
+
+    <section class="survey-panel">
+
+      <p class="survey-label">
+        PLAY SURVEY
+      </p>
+
+      <h1 class="survey-title">
+        月見町アンケート
+      </h1>
+
+      <p class="survey-description">
+        サービス向上のため、アンケートへのご協力をお願いいたします。
+      </p>
+
+      <p class="survey-note">
+        個人情報保護の観点から本アンケートで入力された内容は、お使いの端末内でのみ利用されます。当課が取得、送信または保存することはありません。
+      </p>
+
+      <form id="survey-form">
+
+        <div class="survey-field">
+
+          <label for="survey-age">
+            あなたの年齢
+          </label>
+
+          <div class="survey-inline">
+
+            <input
+              type="number"
+              id="survey-age"
+              min="10"
+              max="99"
+              inputmode="numeric"
+              required
+            >
+
+            <span>歳</span>
+
+          </div>
+
+        </div>
+
+        <fieldset class="survey-field">
+
+          <legend>
+            あなたの誕生日
+          </legend>
+
+          <div class="survey-birthday">
+
+            <label>
+              <select id="survey-month" required>
+                <option value="">月</option>
+                <option value="1">1月</option>
+                <option value="2">2月</option>
+                <option value="3">3月</option>
+                <option value="4">4月</option>
+                <option value="5">5月</option>
+                <option value="6">6月</option>
+                <option value="7">7月</option>
+                <option value="8">8月</option>
+                <option value="9">9月</option>
+                <option value="10">10月</option>
+                <option value="11">11月</option>
+                <option value="12">12月</option>
+              </select>
+            </label>
+
+            <label>
+              <select id="survey-day" required>
+                <option value="">日</option>
+              </select>
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <fieldset class="survey-field">
+
+          <legend>
+            あなたの性別
+          </legend>
+
+          <div class="survey-radio-list">
+
+            <label class="survey-radio">
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                required
+              >
+              <span>男性</span>
+            </label>
+
+            <label class="survey-radio">
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                required
+              >
+              <span>女性</span>
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <p
+          id="survey-error"
+          class="survey-error"
+          aria-live="polite"
+        ></p>
+
+        <button
+          type="submit"
+          class="survey-submit"
+        >
+          回答を送信する
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <script src="js/survey.js"></script>
+
+</body>
+
+</html>

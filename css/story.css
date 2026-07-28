@@ -176,3 +176,319 @@ body.ending-page {
     margin-bottom: 32px;
   }
 }
+
+/* ==============================
+   プレイ前アンケート
+   イントロ風デザイン
+================================ */
+
+body.survey-page {
+  min-height: 100vh;
+  margin: 0;
+  background: #111111;
+  color: #eeeeee;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    "Meiryo",
+    sans-serif;
+  line-height: 1.9;
+}
+
+.survey-container {
+  width: min(700px, 88%);
+  margin: 0 auto;
+  padding: 80px 0 100px;
+}
+
+.survey-panel {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.survey-label {
+  margin: 0 0 10px;
+  color: #9fa8a3;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+.survey-title {
+  margin: 0 0 28px;
+  color: #ffffff;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+}
+
+.survey-description {
+  margin: 0 0 18px;
+  color: #eeeeee;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.survey-note {
+  margin: 0 0 45px;
+  padding: 16px 18px;
+  background: #181818;
+  color: #aaaaaa;
+  font-size: 13px;
+  line-height: 1.8;
+  border-left: 3px solid #666666;
+}
+
+.survey-field {
+  margin: 0 0 34px;
+  padding: 0;
+  border: 0;
+}
+
+.survey-field > label,
+.survey-field legend {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+
+.survey-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.survey-inline span {
+  color: #cccccc;
+}
+
+.survey-field input[type="number"],
+.survey-field select {
+  min-height: 48px;
+  padding: 10px 13px;
+  background: #181818;
+  color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 0;
+}
+
+.survey-field input[type="number"] {
+  width: 140px;
+}
+
+.survey-field select {
+  min-width: 120px;
+}
+
+.survey-field input:focus,
+.survey-field select:focus {
+  outline: 2px solid #aaaaaa;
+  outline-offset: 2px;
+}
+
+.survey-birthday {
+  display: flex;
+  gap: 12px;
+}
+
+.survey-radio-list {
+  display: flex;
+  gap: 14px;
+}
+
+.survey-radio {
+  min-width: 140px;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #181818;
+  border: 1px solid #555555;
+  cursor: pointer;
+}
+
+.survey-radio:hover {
+  border-color: #888888;
+}
+
+.survey-radio:has(input:checked) {
+  background: #eeeeee;
+  color: #111111;
+  border-color: #eeeeee;
+}
+
+.survey-radio input {
+  margin: 0;
+}
+
+.survey-error {
+  min-height: 1.8em;
+  margin: 0 0 16px;
+  color: #e28d8d;
+  font-size: 14px;
+}
+
+.survey-submit {
+  display: inline-block;
+  width: auto;
+  padding: 12px 28px;
+  background: transparent;
+  color: #eeeeee;
+  font: inherit;
+  text-decoration: none;
+  border: 1px solid #777777;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.survey-submit:hover {
+  background: #eeeeee;
+  color: #111111;
+}
+
+@media screen and (max-width: 600px) {
+  .survey-container {
+    width: 88%;
+    padding: 55px 0 75px;
+  }
+
+  .survey-title {
+    font-size: 29px;
+  }
+
+  .survey-description {
+    font-size: 16px;
+  }
+
+  .survey-birthday {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .survey-field select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .survey-radio-list {
+    display: grid;
+  }
+
+  .survey-radio {
+    width: 100%;
+  }
+
+  .survey-submit {
+    width: 100%;
+  }
+}
+
+/* ==============================
+   対象者管理台帳
+================================ */
+
+.subject-select-row {
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.subject-select-row:hover,
+.subject-select-row:focus {
+  background: #e8eeee;
+  outline: none;
+}
+
+.subject-number-link {
+  color: #174f78;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.subject-select-row:hover .subject-number-link,
+.subject-select-row:focus .subject-number-link {
+  color: #a12626;
+}
+
+.document-note {
+  margin-top: 16px;
+  color: #666;
+  font-size: 13px;
+}
+
+/* ==============================
+   対象者記録認証
+================================ */
+
+.subject-auth-form {
+  margin-top: 24px;
+}
+
+.subject-auth-form > label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.subject-auth-input {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.subject-auth-input input {
+  width: min(100%, 280px);
+  min-height: 46px;
+  padding: 8px 12px;
+  font: inherit;
+  letter-spacing: 0.12em;
+  border: 1px solid #888;
+}
+
+.subject-auth-input input:focus {
+  outline: 2px solid #345d72;
+  outline-offset: 2px;
+}
+
+.subject-auth-input .main-button {
+  margin: 0;
+}
+
+.subject-password-error {
+  min-height: 1.8em;
+  margin: 14px 0 0;
+  color: #a52222;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .subject-auth-input {
+    display: block;
+  }
+
+  .subject-auth-input input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .subject-auth-input .main-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}

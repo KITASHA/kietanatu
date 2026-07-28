@@ -30,133 +30,218 @@
 
       <table class="history-table">
 
-        <tr>
-          <th>管理番号</th>
-          <th>処置状況</th>
-          <th>現在の状態</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>管理番号</th>
+            <th>処置状況</th>
+            <th>現在の状態</th>
+          </tr>
+        </thead>
 
-        <tr>
-          <td>No.011</td>
-          <td>完了</td>
-          <td>安定</td>
-        </tr>
+        <tbody>
 
-        <tr>
-          <td>No.012</td>
-          <td>完了</td>
-          <td>安定</td>
-        </tr>
+          <tr>
+            <td>No.011</td>
+            <td>完了</td>
+            <td>安定</td>
+          </tr>
 
-        <tr>
-          <td>No.013</td>
-          <td>完了</td>
-          <td>安定</td>
-        </tr>
+          <tr>
+            <td>No.012</td>
+            <td>完了</td>
+            <td>安定</td>
+          </tr>
 
-        <tr>
-          <td>No.014</td>
-          <td>完了</td>
-          <td>安定</td>
-        </tr>
+          <tr>
+            <td>No.013</td>
+            <td>完了</td>
+            <td>安定</td>
+          </tr>
 
-        <tr>
-          <td>No.015</td>
-          <td>完了</td>
-          <td>経過観察</td>
-        </tr>
+          <tr>
+            <td>No.014</td>
+            <td>完了</td>
+            <td>安定</td>
+          </tr>
 
-        <tr>
-          <td>No.016</td>
-          <td>完了</td>
-          <td>経過観察</td>
-        </tr>
+          <tr>
+            <td>No.015</td>
+            <td>完了</td>
+            <td>経過観察</td>
+          </tr>
 
-        <tr>
-          <td>No.017</td>
-          <td>再処置予定</td>
-          <td>補完現象確認</td>
-        </tr>
+          <tr>
+            <td>No.016</td>
+            <td>完了</td>
+            <td>経過観察</td>
+          </tr>
+
+          <tr
+            id="subject-017-row"
+            class="subject-select-row"
+            tabindex="0"
+            role="button"
+            aria-controls="subject-authentication"
+            aria-expanded="false"
+          >
+            <td>
+              <span class="subject-number-link">
+                No.017
+              </span>
+            </td>
+
+            <td>再処置予定</td>
+            <td>補完現象確認</td>
+          </tr>
+
+        </tbody>
 
       </table>
 
-    </section>
-
-    <section class="document">
-
-      <h2>対象者 No.017</h2>
-
-      <p>氏名：非公開</p>
-
-      <p>処置実施日：平成16年8月16日</p>
-
-      <p>現在の状態：補完現象継続中</p>
+      <p class="document-note">
+        管理番号を選択すると、詳細記録を確認できます。
+      </p>
 
     </section>
 
-    <section class="document">
+    <!-- No.017選択後に表示 -->
+    <section
+      id="subject-authentication"
+      class="document"
+      hidden
+    >
 
-      <h2>証言記録</h2>
+      <h2>対象者記録認証</h2>
 
       <p>
-        対象者は処置後も、事故当日に存在しない人物と
-        行動していたと繰り返し証言している。
+        対象者 No.017 の記録は閲覧が制限されています。
       </p>
 
-      <blockquote>
-        「祭りの日、友人と一緒に花火を見た。」
-      </blockquote>
+      <p>
+        本人確認用パスワードを入力してください。
+      </p>
 
-      <blockquote>
-        「事故が起きたとき、あいつはすぐ隣にいた。」
-      </blockquote>
+      <div class="subject-auth-form">
 
-      <blockquote>
-        「みんなも、あいつのことを知っていたはずだ。」
-      </blockquote>
+        <label for="subject-password">
+          パスワード
+        </label>
+
+        <div class="subject-auth-input">
+
+          <input
+            type="password"
+            id="subject-password"
+            maxlength="8"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="8桁の数字"
+          >
+
+          <button
+            type="button"
+            id="subject-password-button"
+            class="main-button"
+          >
+            記録を開く
+          </button>
+
+        </div>
+
+      </div>
+
+      <p
+        id="subject-password-error"
+        class="subject-password-error"
+        aria-live="polite"
+      ></p>
 
     </section>
 
-    <section class="document">
+    <!-- パスワード認証後に表示 -->
+    <div id="subject-017-record" hidden>
 
-      <h2>照合結果</h2>
+      <section class="document">
 
-      <p>
-        対象者の証言をもとに、該当人物の記録を照合した。
-      </p>
+        <h2>対象者 No.017</h2>
 
-      <p>
-        住民記録：該当なし
-      </p>
+        <p>
+          氏名：非公開
+        </p>
 
-      <p>
-        戸籍記録：該当なし
-      </p>
+        <p>
+          処置実施日：平成16年8月16日
+        </p>
 
-      <p>
-        学校記録：該当なし
-      </p>
+        <p>
+          現在の状態：補完現象継続中
+        </p>
 
-      <p>
-        医療記録：該当なし
-      </p>
+      </section>
 
-      <p>
-        事故当日の参加者名簿：該当なし
-      </p>
+      <section class="document">
 
-      <p>
-        以上の結果から、対象者の証言する人物は
-        実在しないものと判断する。
-      </p>
-            
-      <a class="main-button" href="ending.html">
-        最終記録を開く
-      </a>
+        <h2>証言記録</h2>
 
-    </section>
+        <p>
+          対象者は処置後も、事故当日に存在しない人物と
+          行動していたと繰り返し証言している。
+        </p>
 
-    </section>
+        <blockquote>
+          「祭りの日、友人と一緒に花火を見た。」
+        </blockquote>
+
+        <blockquote>
+          「事故が起きたとき、あいつはすぐ隣にいた。」
+        </blockquote>
+
+        <blockquote>
+          「みんなも、あいつのことを知っていたはずだ。」
+        </blockquote>
+
+      </section>
+
+      <section class="document">
+
+        <h2>照合結果</h2>
+
+        <p>
+          対象者の証言をもとに、該当人物の記録を照合した。
+        </p>
+
+        <p>
+          住民記録：該当なし
+        </p>
+
+        <p>
+          戸籍記録：該当なし
+        </p>
+
+        <p>
+          学校記録：該当なし
+        </p>
+
+        <p>
+          医療記録：該当なし
+        </p>
+
+        <p>
+          事故当日の参加者名簿：該当なし
+        </p>
+
+        <p>
+          以上の結果から、対象者の証言する人物は
+          実在しないものと判断する。
+        </p>
+
+        <a class="main-button" href="ending.html">
+          最終記録を開く
+        </a>
+
+      </section>
+
+    </div>
 
     <p class="back-link">
       <a href="archive.html">
