@@ -91,6 +91,6 @@ function setupRestartButton() {
     sessionStorage.clear();
     localStorage.clear();
 
-    window.location.replace("survey.html");
+    window.location.replace("index.html");
   });
 }

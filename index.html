@@ -5,241 +5,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>月見町役場</title>
+  <title>プレイ前アンケート｜消えた夏の思い出</title>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="survey-page">
 
-<div id="header"></div>
+  <main class="survey-container">
 
-<div class="page-layout">
+    <section class="survey-panel">
 
-  <main class="town-main">
 
-    <section class="hero-section">
+      <h1 class="survey-title">
+        月見町アンケート
+      </h1>
 
-      <div class="hero-copy">
+      <p class="survey-description">
+        サービス向上のため、アンケートへのご協力をお願いいたします。
+      </p>
 
-        <p>
-          山と川に囲まれた、小さな町。
-        </p>
+      <p class="survey-note">
+        本アンケートで入力された内容は、お使いの端末内でのみ利用されます。<br>当課が取得、送信または保存することはありません。（町民課）
+      </p>
 
-        <h2>
-          月明かりとともに暮らす町
-        </h2>
+      <form id="survey-form">
 
-      </div>
+        <div class="survey-field">
+
+          <label for="survey-age">
+            あなたの年齢
+          </label>
+
+          <div class="survey-inline">
+
+            <input
+              type="number"
+              id="survey-age"
+              min="10"
+              max="99"
+              inputmode="numeric"
+              required
+            >
+
+            <span>歳</span>
+
+          </div>
+
+        </div>
+
+        <fieldset class="survey-field">
+
+          <legend>
+            あなたの誕生日
+          </legend>
+
+          <div class="survey-birthday">
+
+            <label>
+              <select id="survey-month" required>
+                <option value="">月</option>
+                <option value="1">1月</option>
+                <option value="2">2月</option>
+                <option value="3">3月</option>
+                <option value="4">4月</option>
+                <option value="5">5月</option>
+                <option value="6">6月</option>
+                <option value="7">7月</option>
+                <option value="8">8月</option>
+                <option value="9">9月</option>
+                <option value="10">10月</option>
+                <option value="11">11月</option>
+                <option value="12">12月</option>
+              </select>
+            </label>
+
+            <label>
+              <select id="survey-day" required>
+                <option value="">日</option>
+              </select>
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <fieldset class="survey-field">
+
+          <legend>
+            あなたの性別
+          </legend>
+
+          <div class="survey-radio-list">
+
+            <label class="survey-radio">
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                required
+              >
+              <span>男性</span>
+            </label>
+
+            <label class="survey-radio">
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                required
+              >
+              <span>女性</span>
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <p
+          id="survey-error"
+          class="survey-error"
+          aria-live="polite"
+        ></p>
+
+        <button
+          type="submit"
+          class="survey-submit"
+        >
+          回答を送信する
+        </button>
+
+      </form>
 
     </section>
-
-    <section class="important-section">
-
-      <h2 class="important-heading">
-        重要なお知らせ
-      </h2>
-
-      <div class="important-notice">
-
-        <span class="notice-label">
-          防災
-        </span>
-
-        <a href="disaster.html">
-          屋外行事における仮設設備の安全確認について
-        </a>
-
-      </div>
-
-    </section>
-
-    <div class="top-columns">
-
-      <section class="news-section">
-
-        <h2 class="section-heading">
-          新着情報
-        </h2>
-
-        <ul class="news-list">
-
-
-
-          
-          <li>
-
-            <time datetime="2004-09-01">
-              平成16年9月1日
-            </time>
-
-            <span class="news-category">
-              広報
-            </span>
-
-            <a href="newsletter.html">
-              広報つきみ9月号を掲載しました
-            </a>
-
-          </li>
-
-          
-          <li>
-
-            <time datetime="2004-08-27">
-              平成16年8月27日
-            </time>
-
-            <span class="news-category">
-              議会
-            </span>
-
-            <a href="council.html">
-              臨時議会資料を掲載しました
-            </a>
-
-          </li>
-
-          <li>
-
-            <time datetime="2004-08-23">
-              平成16年8月23日
-            </time>
-
-            <span class="news-category">
-              生活
-            </span>
-
-            <span>
-              粗大ごみ収集日の変更について
-            </span>
-
-          </li>
-
-
-          <li>
-
-            <time datetime="2004-08-06">
-              平成16年8月6日
-            </time>
-
-            <span class="news-category">
-              観光
-            </span>
-
-            <a href="festival.html">
-              第52回 月見町納涼祭を開催します
-            </a>
-
-          </li>
-
-        </ul>
-
-      </section>
-
-      <aside class="side-menu">
-
-        <h2 class="section-heading">
-          よく利用される情報
-        </h2>
-
-        <div class="quick-links">
-
-          <a href="garbage.html">
-            ごみ・リサイクル
-          </a>
-
-          <a href="resident.html">
-            戸籍・住民票
-          </a>
-
-          <a href="move.html">
-            転入・転出
-          </a>
-
-          <a href="bousai.html">
-            防災情報
-          </a>
-
-          <a href="tourism.html">
-            観光案内
-          </a>
-
-        </div>
-
-      </aside>
-
-    </div>
-
-    <section class="town-info-section">
-
-      <h2 class="section-heading">
-        月見町について
-      </h2>
-
-      <div class="town-info-grid">
-
-        <div class="town-info-card">
-
-          <span>
-            人口
-          </span>
-
-          <strong>
-            18,542人
-          </strong>
-
-          <small>
-            平成16年9月1日現在
-          </small>
-
-        </div>
-
-        <div class="town-info-card">
-
-          <span>
-            世帯数
-          </span>
-
-          <strong>
-            7,911世帯
-          </strong>
-
-          <small>
-            平成16年9月1日現在
-          </small>
-
-        </div>
-
-        <div class="town-info-card">
-
-          <span>
-            面積
-          </span>
-
-          <strong>
-            34.2km²
-          </strong>
-
-          <small>
-            山林を含む
-          </small>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    
 
   </main>
 
-</div>
-
-<div id="footer"></div>
-
-<script src="js/include.js"></script>
+  <script src="js/survey.js"></script>
 
 </body>
 
