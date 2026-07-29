@@ -204,3 +204,18 @@
   color: transparent;
   user-select: text;
 }
+
+.hidden-note {
+  color: transparent;
+  user-select: text;
+}
+
+.hidden-note::selection {
+  color: #000;
+  background: #99c9ff; /* 好きな選択色 */
+}
+
+.hidden-note::-moz-selection {
+  color: #000;
+  background: #99c9ff;
+}
