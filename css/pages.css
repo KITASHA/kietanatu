@@ -219,3 +219,42 @@
   color: #000;
   background: #99c9ff;
 }
+
+.year-row td {
+    background: #f4f4f4;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 14px;
+}
+
+.council-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.council-table th,
+.council-table td {
+    padding: 14px 24px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.council-table th:nth-child(1),
+.council-table td:nth-child(1) {
+    width: 28%;
+}
+
+.council-table th:nth-child(2),
+.council-table td:nth-child(2) {
+    width: 20%;
+}
+
+.council-table th:nth-child(3),
+.council-table td:nth-child(3) {
+    width: 22%;
+}
+
+.council-table th:nth-child(4),
+.council-table td:nth-child(4) {
+    width: 30%;
+}
