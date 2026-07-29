@@ -1,17 +1,44 @@
 /* ==============================
    レスポンシブ
 ================================ */
+
+/* iPhoneなどで文字サイズが自動拡大されるのを防止 */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 画像・埋め込み要素のはみ出し防止 */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 長い英数字やURLのはみ出し防止 */
+p,
+li,
+dd,
+td,
+th,
+a {
+  overflow-wrap: anywhere;
+}
+
+/* タブレット */
 @media screen and (max-width: 800px) {
   .header-inner {
     min-height: auto;
     padding: 18px 0;
     align-items: flex-start;
     flex-direction: column;
+    gap: 14px;
   }
 
   .nav-inner {
     grid-auto-flow: row;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .top-columns {
@@ -27,8 +54,14 @@
     width: 92%;
     padding: 28px 0;
   }
+
+  .container,
+  .town-main {
+    width: min(92%, 760px);
+  }
 }
 
+/* スマートフォン */
 @media screen and (max-width: 700px) {
   .menu-grid,
   .related-link-grid {
@@ -36,11 +69,14 @@
   }
 
   .panel,
-  .document,
   .news-section,
   .side-menu,
   .town-info-section {
     padding: 20px;
+  }
+
+  .document {
+    padding: 18px;
   }
 
   .page-header {
@@ -66,17 +102,98 @@
     margin-top: 14px;
   }
 
+  /* 横長テーブルは画面内でスクロール */
+  .history-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .history-table th,
   .history-table td {
+    min-width: 110px;
     padding: 10px;
   }
 
   .history-table th {
     width: 120px;
   }
+
+  /* 対象者検索 */
+  .subject-search-input {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 12px;
+  }
+
+  .subject-search-form .main-button {
+    width: 100%;
+  }
+
+  /* 認証フォーム */
+  .subject-auth-input {
+    display: block;
+  }
+
+  .subject-auth-input input {
+    width: 100%;
+    max-width: none;
+  }
+
+  .subject-auth-input .main-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  /* アンケート */
+  .survey-container,
+  .intro-box,
+  .ending-box,
+  .ending-container {
+    width: 92%;
+  }
+
+  .survey-birthday {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .survey-field select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .survey-radio-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .survey-radio {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .survey-submit {
+    width: 100%;
+  }
+
+  /* タップしやすい最低サイズ */
+  button,
+  .main-button,
+  .quick-links a,
+  .town-banner,
+  .document-link {
+    min-height: 44px;
+  }
 }
 
+/* 小型スマートフォン */
 @media screen and (max-width: 480px) {
+  .container,
+  .town-main {
+    width: 92%;
+  }
+
   .town-title {
     font-size: 27px;
   }
@@ -91,7 +208,7 @@
   }
 
   .hero-copy {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .important-heading {
@@ -115,5 +232,110 @@
   .footer-bottom {
     padding-right: 16px;
     padding-left: 16px;
+  }
+
+  .panel,
+  .document,
+  .news-section,
+  .side-menu,
+  .town-info-section {
+    padding: 16px;
+  }
+
+  .survey-birthday {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-inline {
+    align-items: stretch;
+  }
+
+  .survey-field input[type="number"] {
+    width: 100%;
+  }
+
+  .survey-inline span {
+    align-self: center;
+  }
+
+  .subject-search-form label,
+  .subject-auth-form > label {
+    font-size: 14px;
+  }
+
+  .subject-search-input,
+  .subject-auth-input input {
+    font-size: 16px;
+  }
+
+  .ending-section p,
+  .intro-text {
+    font-size: 15px;
+  }
+}
+
+/* ==============================
+   スマホ版・新着情報
+================================ */
+@media screen and (max-width: 700px) {
+  .news-section {
+    padding: 18px;
+  }
+
+  .news-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .news-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 7px 10px;
+    padding: 16px 0;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  .news-list li:first-child {
+    padding-top: 4px;
+  }
+
+  .news-list li:last-child {
+    padding-bottom: 4px;
+    border-bottom: 0;
+  }
+
+  .news-list time {
+    grid-column: 1;
+    grid-row: 1;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .news-list .news-category {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    margin: 0;
+    padding: 1px 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .news-list li > a,
+  .news-list li > span:not(.news-category) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: block;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .news-list li > a {
+    font-weight: 600;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 }
