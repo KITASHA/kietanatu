@@ -75,3 +75,36 @@
   }
 
 }
+
+.button-area {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.btn-disabled,
+.btn-primary {
+    display: inline-block;
+    width: 260px;
+    padding: 14px 0;
+    font-size: 16px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-disabled {
+    background: #d9d9d9;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: #0068b7;
+    color: #fff;
+    transition: background .2s;
+}
+
+.btn-primary:hover {
+    background: #00508c;
+}
