@@ -26,22 +26,36 @@ function setupArchiveSearch() {
   });
 
   archiveInput.addEventListener("input", () => {
-    errorMessage.textContent = "";
-  });
+  errorMessage.textContent = "";
 
-  function searchArchive() {
-    const code = archiveInput.value.trim();
+  let value = archiveInput.value.replace(/[^0-9A-Za-z]/g, "");
 
-    if (code === "69_0216") {
-      window.location.href = "archive.html";
-      return;
-    }
+  // 最大6文字（69 + 0216）
+  value = value.slice(0, 6);
 
-    errorMessage.textContent =
-      "該当する資料は見つかりませんでした。";
-
-    archiveInput.select();
+  // 2文字目の後ろに自動で _
+  if (value.length > 2) {
+    value = value.slice(0, 2) + "_" + value.slice(2);
   }
+
+  archiveInput.value = value;
+});
+
+ function searchArchive() {
+  const code = archiveInput.value
+    .trim()
+    .replace("_", "");
+
+  if (code === "690216") {
+    window.location.href = "archive.html";
+    return;
+  }
+
+  errorMessage.textContent =
+    "該当する資料は見つかりませんでした。";
+
+  archiveInput.select();
+}
 }
 
 /**
