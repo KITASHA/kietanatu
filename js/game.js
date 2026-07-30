@@ -32,7 +32,7 @@ function setupArchiveSearch() {
   function searchArchive() {
     const code = archiveInput.value.trim();
 
-    if (code === "0815") {
+    if (code === "69_0216") {
       window.location.href = "archive.html";
       return;
     }
