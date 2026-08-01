@@ -343,7 +343,12 @@ body.survey-page {
   background: #eeeeee;
   color: #111111;
 }
-
+.survey-warning {
+  margin: 12px 0 32px;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.7;
+}
 @media screen and (max-width: 600px) {
   .survey-container {
     width: 88%;

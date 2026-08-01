@@ -109,10 +109,12 @@
 /* ==============================
    フッター
 ================================ */
+
 .town-footer {
   width: 100%;
   margin-top: 60px;
   padding: 0;
+
   background: #245b4d;
   color: #fff;
 }
@@ -121,6 +123,7 @@
   width: min(1100px, 92%);
   margin: 0 auto;
   padding: 24px 0;
+
   display: flex;
   align-items: center;
 }
@@ -132,8 +135,10 @@
 .town-footer-info h2 {
   margin: 0 0 12px;
   padding: 0;
+
   background: none;
   border: 0;
+
   color: #fff;
   font-size: 24px;
 }
@@ -143,11 +148,35 @@
   line-height: 1.7;
 }
 
-.fiction-notice {
-  margin: 0;
+
+/* ---------- 調査導線 ---------- */
+
+.footer-links {
   padding: 16px 24px;
+
+  background: #1f4d41;
+  text-align: center;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+
+/* ---------- フィクション表記 ---------- */
+
+.fiction-notice {
+  padding: 16px 24px;
+
   background: #f4f1e9;
   color: #333;
+
   text-align: center;
 }
 
@@ -156,14 +185,19 @@
   line-height: 1.7;
 }
 
+
+/* ---------- コピーライト ---------- */
+
 .footer-bottom {
   padding: 14px 24px;
+
   background: #183f35;
   text-align: center;
 }
 
 .footer-bottom p {
   margin: 0;
+
   font-size: 14px;
   line-height: 1.6;
 }

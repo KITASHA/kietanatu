@@ -1,15 +1,24 @@
 /* ==============================
    トップページ
 ================================ */
+
+/* ---------- ヒーロー ---------- */
+
 .hero-section {
   position: relative;
   min-height: 280px;
   margin-bottom: 30px;
   overflow: hidden;
+
   display: flex;
   align-items: center;
+
   background:
-    linear-gradient(90deg, rgba(20, 60, 47, 0.88), rgba(20, 60, 47, 0.32)),
+    linear-gradient(
+      90deg,
+      rgba(20, 60, 47, 0.88),
+      rgba(20, 60, 47, 0.32)
+    ),
     linear-gradient(135deg, #709b88, #b9cbbf);
 }
 
@@ -17,18 +26,22 @@
   position: absolute;
   right: -70px;
   bottom: -170px;
+
   width: 430px;
   height: 430px;
+
   border: 70px solid rgba(255, 255, 255, 0.08);
   border-radius: 50%;
+
   content: "";
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
+
   padding: 40px 55px;
-  color: #fff;
+  color: #ffffff;
 }
 
 .hero-copy p {
@@ -44,18 +57,14 @@
   letter-spacing: 0.08em;
 }
 
-.top-columns {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-  margin-bottom: 40px;
-}
+
+/* ---------- 共通パネル ---------- */
 
 .news-section,
 .side-menu,
 .town-info-section {
   padding: 25px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #dce2df;
 }
 
@@ -63,14 +72,28 @@
   margin-bottom: 36px;
 }
 
-.news-section p {
-  margin: 0 0 12px;
-  line-height: 1.8;
+
+/* ---------- 新着情報・よく利用される情報 ---------- */
+
+.top-columns {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(260px, 1fr);
+
+  gap: 30px;
+  align-items: stretch;
+
+  margin-bottom: 40px;
 }
 
-.news-section p:last-child {
+/* 横並び内では通常の下余白を無効化 */
+.top-columns .news-section {
   margin-bottom: 0;
 }
+
+
+/* ---------- 新着情報 ---------- */
 
 .news-list {
   margin: 0;
@@ -79,16 +102,65 @@
 }
 
 .news-list li {
+  display: grid;
+  grid-template-columns:
+    135px
+    64px
+    minmax(0, 1fr);
+
+  gap: 12px;
+  align-items: center;
+
   padding: 15px 5px;
-  border-bottom: 1px dotted #aaa;
+  border-bottom: 1px dotted #aaaaaa;
+}
+
+.news-list li:last-child {
+  border-bottom: 0;
 }
 
 .news-list time {
-  display: inline-block;
-  min-width: 125px;
-  color: #666;
+  color: #666666;
   font-size: 14px;
+  line-height: 1.6;
+  white-space: nowrap;
 }
+
+.news-category {
+  display: inline-block;
+  padding: 3px 8px;
+
+  background: #edf3f0;
+  color: #315a4d;
+
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.news-list li > a,
+.news-list li > span:not(.news-category) {
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.news-list li > a {
+  color: #245f4d;
+  font-weight: 600;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.news-list li > a:hover {
+  color: #183f35;
+}
+
+
+/* ---------- よく利用される情報 ---------- */
 
 .quick-links {
   display: grid;
@@ -98,9 +170,13 @@
 .quick-links a,
 .quick-links span {
   position: relative;
+  display: block;
+
   padding: 13px 15px 13px 30px;
+
   background: #f4f7f5;
   color: #315a4d;
+
   text-decoration: none;
   border: 1px solid #d6dfdb;
 }
@@ -116,53 +192,64 @@
   background: #e6efeb;
 }
 
+
+/* ---------- 月見町について ---------- */
+
 .town-info-section {
   margin-bottom: 40px;
 }
 
 .town-info-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .town-info-card {
   padding: 25px 15px;
+
   background: #f5f8f6;
   border-top: 4px solid #5b8a77;
+
   text-align: center;
 }
 
 .town-info-card span,
-.town-info-card small {
+.town-info-card small,
+.town-info-card strong {
   display: block;
 }
 
 .town-info-card strong {
-  display: block;
   margin: 8px 0;
   color: #285c4a;
   font-size: 27px;
 }
 
 .town-info-card small {
-  color: #777;
+  color: #777777;
 }
+
+
+/* ---------- バナー ---------- */
 
 .banner-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .town-banner {
   min-height: 130px;
   padding: 25px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   background: #417561;
-  color: #fff;
+  color: #ffffff;
+
   text-decoration: none;
   border-bottom: 6px solid #285846;
 }
@@ -188,4 +275,89 @@
 
 .town-banner:hover {
   filter: brightness(0.92);
+}
+
+
+/* ==============================
+   レスポンシブ
+================================ */
+
+@media screen and (max-width: 800px) {
+  .top-columns {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .town-info-grid,
+  .banner-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .hero-section {
+    min-height: 230px;
+  }
+
+  .hero-copy {
+    padding: 32px 24px;
+  }
+
+  .news-section,
+  .side-menu,
+  .town-info-section {
+    padding: 20px;
+  }
+
+  .news-list li {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px 10px;
+    padding: 16px 0;
+  }
+
+  .news-list time {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 13px;
+  }
+
+  .news-category {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .news-list li > a,
+  .news-list li > span:not(.news-category) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-section {
+    min-height: 210px;
+  }
+
+  .hero-copy {
+    padding: 28px 20px;
+  }
+
+  .hero-copy p {
+    font-size: 14px;
+  }
+
+  .news-section,
+  .side-menu,
+  .town-info-section {
+    padding: 16px;
+  }
+
+  .town-info-card {
+    padding: 20px 14px;
+  }
+
+  .town-info-card strong {
+    font-size: 24px;
+  }
 }

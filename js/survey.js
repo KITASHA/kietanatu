@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const daySelect = document.getElementById("survey-day");
   const errorMessage = document.getElementById("survey-error");
 
-  if (!form || !ageInput || !monthSelect || !daySelect) {
+  if (
+    !form ||
+    !ageInput ||
+    !monthSelect ||
+    !daySelect
+  ) {
     return;
   }
 
@@ -14,7 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   monthSelect.addEventListener("change", () => {
     updateDayOptions(monthSelect, daySelect);
+    clearError();
   });
+
+  /*
+   * 入力時にエラーを消す
+   */
+  ageInput.addEventListener("input", clearError);
+  daySelect.addEventListener("change", clearError);
+
+  document
+    .querySelectorAll('input[name="gender"]')
+    .forEach((input) => {
+      input.addEventListener("change", clearError);
+    });
 
   /*
    * アンケート送信
@@ -30,83 +48,147 @@ document.addEventListener("DOMContentLoaded", () => {
       'input[name="gender"]:checked'
     );
 
-    if (!Number.isInteger(age) || age < 10 || age > 99) {
-      showError("年齢を正しく入力してください.");
+    if (
+      !Number.isInteger(age) ||
+      age < 10 ||
+      age > 99
+    ) {
+      showError(
+        "年齢を正しく入力してください。"
+      );
+
       ageInput.focus();
       return;
     }
 
     if (!month || !day) {
-      showError("誕生日を選択してください。");
+      showError(
+        "誕生日を選択してください。"
+      );
+
       return;
     }
 
     if (!genderInput) {
-      showError("性別を選択してください。");
+      showError(
+        "性別を選択してください。"
+      );
+
       return;
     }
 
-    const gender = genderInput.value;
-
-    /*
-     * 現在の日付と年齢から生まれた年を計算する
-     */
-    const birthDate = calculateBirthDate(age, month, day);
+    const birthDate = calculateBirthDate(
+      age,
+      month,
+      day
+    );
 
     if (!birthDate) {
-      showError("入力された誕生日を確認してください。");
+      showError(
+        "入力された誕生日を確認してください。"
+      );
+
       return;
     }
 
     /*
-     * 例：
-     * 2004年8月15日
-     * パスワード形式：20040815
+     * 例：2004年8月15日
+     * 保存形式：20040815
      */
-    const birthDatePassword =
-      String(birthDate.year) +
-      String(birthDate.month).padStart(2, "0") +
-      String(birthDate.day).padStart(2, "0");
+    const birthDatePassword = [
+      birthDate.year,
+      String(birthDate.month).padStart(2, "0"),
+      String(birthDate.day).padStart(2, "0")
+    ].join("");
 
     /*
-     * ゲーム中だけブラウザに保存
+     * 別タブでも利用できるようlocalStorageへ保存
      */
-    sessionStorage.setItem("playerAge", String(age));
-    sessionStorage.setItem("playerBirthMonth", String(month));
-    sessionStorage.setItem("playerBirthDay", String(day));
-    sessionStorage.setItem("playerBirthYear", String(birthDate.year));
-    sessionStorage.setItem("playerBirthDate", birthDatePassword);
-    sessionStorage.setItem("playerGender", gender);
+    localStorage.setItem(
+      "playerAge",
+      String(age)
+    );
+
+    localStorage.setItem(
+      "playerBirthMonth",
+      String(month)
+    );
+
+    localStorage.setItem(
+      "playerBirthDay",
+      String(day)
+    );
+
+    localStorage.setItem(
+      "playerBirthYear",
+      String(birthDate.year)
+    );
+
+    localStorage.setItem(
+      "playerBirthDate",
+      birthDatePassword
+    );
+
+    localStorage.setItem(
+      "playerGender",
+      genderInput.value
+    );
+
+    /*
+     * アンケート回答済み
+     */
+    localStorage.setItem(
+      "surveyCompleted",
+      "true"
+    );
 
     /*
      * イントロへ進む
      */
-
     window.location.href = "intro.html";
   });
 
   function showError(message) {
-    if (errorMessage) {
-      errorMessage.textContent = message;
+    if (!errorMessage) {
+      return;
     }
+
+    errorMessage.textContent = message;
+  }
+
+  function clearError() {
+    if (!errorMessage) {
+      return;
+    }
+
+    errorMessage.textContent = "";
   }
 });
 
 /**
  * 月に応じた日付を生成する
  */
-function updateDayOptions(monthSelect, daySelect) {
-  const selectedMonth = Number(monthSelect.value);
-  const previousDay = Number(daySelect.value);
+function updateDayOptions(
+  monthSelect,
+  daySelect
+) {
+  const selectedMonth = Number(
+    monthSelect.value
+  );
 
-  daySelect.innerHTML = '<option value="">日</option>';
+  const previousDay = Number(
+    daySelect.value
+  );
+
+  daySelect.innerHTML =
+    '<option value="">日</option>';
 
   if (!selectedMonth) {
     return;
   }
 
   /*
-   * 2月29日も選択可能にしておく
+   * 2月29日も選択できるよう、うるう年を使用
    */
   const daysInMonth = new Date(
     2024,
@@ -114,8 +196,13 @@ function updateDayOptions(monthSelect, daySelect) {
     0
   ).getDate();
 
-  for (let day = 1; day <= daysInMonth; day += 1) {
-    const option = document.createElement("option");
+  for (
+    let day = 1;
+    day <= daysInMonth;
+    day += 1
+  ) {
+    const option =
+      document.createElement("option");
 
     option.value = String(day);
     option.textContent = `${day}日`;
@@ -131,16 +218,28 @@ function updateDayOptions(monthSelect, daySelect) {
 /**
  * 年齢と誕生日から生年月日を計算する
  */
-function calculateBirthDate(age, month, day) {
+function calculateBirthDate(
+  age,
+  month,
+  day
+) {
   const today = new Date();
 
-  const currentYear = today.getFullYear();
-  const currentMonth = today.getMonth() + 1;
-  const currentDay = today.getDate();
+  const currentYear =
+    today.getFullYear();
+
+  const currentMonth =
+    today.getMonth() + 1;
+
+  const currentDay =
+    today.getDate();
 
   const birthdayHasPassed =
     month < currentMonth ||
-    (month === currentMonth && day <= currentDay);
+    (
+      month === currentMonth &&
+      day <= currentDay
+    );
 
   const birthYear = birthdayHasPassed
     ? currentYear - age
@@ -149,7 +248,11 @@ function calculateBirthDate(age, month, day) {
   /*
    * 日付として成立するか確認
    */
-  const date = new Date(birthYear, month - 1, day);
+  const date = new Date(
+    birthYear,
+    month - 1,
+    day
+  );
 
   const isValid =
     date.getFullYear() === birthYear &&
@@ -166,4 +269,3 @@ function calculateBirthDate(age, month, day) {
     day
   };
 }
-
