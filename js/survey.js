@@ -46,7 +46,7 @@ export function initSurvey() {
       'input[name="gender"]:checked'
     );
 
-    if (!Number.isInteger(age) || age < 10 || age > 99) {
+    if (!Number.isInteger(age) || age < 1 || age > 150) {
       showError("年齢を正しく入力してください。");
       ageInput.focus();
       return;
