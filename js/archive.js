@@ -27,9 +27,11 @@ export function initArchiveSearch() {
   const archiveButton = document.getElementById(
     "archive-button"
   );
+
   const archiveInput = document.getElementById(
     "archive-code"
   );
+
   const message = document.getElementById(
     "error-message"
   );
@@ -38,24 +40,96 @@ export function initArchiveSearch() {
     return;
   }
 
-  archiveButton.addEventListener("click", searchArchive);
+  let isComposing = false;
 
-  archiveInput.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter") {
-      return;
+  archiveButton.addEventListener(
+    "click",
+    searchArchive
+  );
+
+  archiveInput.addEventListener(
+    "keydown",
+    (event) => {
+      if (event.key !== "Enter") {
+        return;
+      }
+
+      event.preventDefault();
+      searchArchive();
+    }
+  );
+
+  archiveInput.addEventListener(
+    "compositionstart",
+    () => {
+      isComposing = true;
+    }
+  );
+
+  archiveInput.addEventListener(
+    "compositionend",
+    () => {
+      isComposing = false;
+
+      formatInputWhileTyping();
+      clearMessage();
+    }
+  );
+
+  archiveInput.addEventListener(
+    "input",
+    () => {
+      if (isComposing) {
+        return;
+      }
+
+      formatInputWhileTyping();
+      clearMessage();
+    }
+  );
+
+  function formatInputWhileTyping() {
+    const oldValue = archiveInput.value;
+
+    const oldCursorPosition =
+      archiveInput.selectionStart ?? oldValue.length;
+
+    /*
+     * カーソルより前に入力されていた
+     * 数字の桁数を取得する
+     */
+    const digitsBeforeCursor = normalizeDigits(
+      oldValue.slice(0, oldCursorPosition)
+    ).length;
+
+    const formattedValue =
+      formatDocumentNumber(oldValue);
+
+    archiveInput.value = formattedValue;
+
+    /*
+     * アンダーバーより後ろにカーソルがある場合は、
+     * アンダーバー1文字分を加算する
+     */
+    let newCursorPosition = digitsBeforeCursor;
+
+    if (digitsBeforeCursor > 2) {
+      newCursorPosition += 1;
     }
 
-    event.preventDefault();
-    searchArchive();
-  });
-
-  archiveInput.addEventListener("input", () => {
-    archiveInput.value = formatDocumentNumber(
-      archiveInput.value
+    /*
+     * 入力欄の範囲外にならないように調整する
+     */
+    newCursorPosition = Math.min(
+      newCursorPosition,
+      formattedValue.length
     );
 
-    clearMessage();
-  });
+    archiveInput.setSelectionRange(
+      newCursorPosition,
+      newCursorPosition
+    );
+  }
 
   function searchArchive() {
     const code = formatDocumentNumber(
@@ -69,6 +143,7 @@ export function initArchiveSearch() {
         "資料番号を正しく入力してください。",
         "is-error"
       );
+
       archiveInput.focus();
       return;
     }
@@ -83,6 +158,7 @@ export function initArchiveSearch() {
         `資料番号 ${code} は保管されていますが、現在は公開を停止しています。`,
         "is-restricted"
       );
+
       return;
     }
 
@@ -90,12 +166,17 @@ export function initArchiveSearch() {
       "該当する資料は見つかりませんでした。",
       "is-error"
     );
+
     archiveInput.select();
   }
 
-  function showMessage(text, stateClass) {
+  function showMessage(
+    text,
+    stateClass
+  ) {
     message.textContent = text;
-    message.className = `search-message ${stateClass}`;
+    message.className =
+      `search-message ${stateClass}`;
   }
 
   function clearMessage() {
@@ -105,7 +186,10 @@ export function initArchiveSearch() {
 }
 
 function formatDocumentNumber(value) {
-  const digits = normalizeDigits(value, 6);
+  const digits = normalizeDigits(
+    value,
+    6
+  );
 
   if (digits.length <= 2) {
     return digits;
