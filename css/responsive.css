@@ -2,31 +2,8 @@
    レスポンシブ
 ================================ */
 
-/* iPhoneなどで文字サイズが自動拡大されるのを防止 */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
+/* ---------- タブレット ---------- */
 
-/* 画像・埋め込み要素のはみ出し防止 */
-img,
-video,
-iframe {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 長い英数字やURLのはみ出し防止 */
-p,
-li,
-dd,
-td,
-th,
-a {
-  overflow-wrap: anywhere;
-}
-
-/* タブレット */
 @media screen and (max-width: 800px) {
   .header-inner {
     min-height: auto;
@@ -41,8 +18,14 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .container,
+  .town-main {
+    width: min(92%, 760px);
+  }
+
   .top-columns {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   .town-info-grid,
@@ -54,14 +37,25 @@ a {
     width: 92%;
     padding: 28px 0;
   }
+}
 
-  .container,
-  .town-main {
-    width: min(92%, 760px);
+/* ---------- 議会資料テーブル ---------- */
+
+@media screen and (max-width: 768px) {
+  .council-table {
+    min-width: 560px;
+  }
+
+  .council-table th,
+  .council-table td,
+  .year-row td {
+    padding: 8px 10px;
+    font-size: 13px;
   }
 }
 
-/* スマートフォン */
+/* ---------- スマートフォン ---------- */
+
 @media screen and (max-width: 700px) {
   .menu-grid,
   .related-link-grid {
@@ -69,7 +63,6 @@ a {
   }
 
   .panel,
-  .news-section,
   .side-menu,
   .town-info-section {
     padding: 20px;
@@ -102,7 +95,6 @@ a {
     margin-top: 14px;
   }
 
-  /* 横長テーブルは画面内でスクロール */
   .history-table {
     display: block;
     width: 100%;
@@ -120,41 +112,116 @@ a {
     width: 120px;
   }
 
-  /* 対象者検索 */
-  .subject-search-input {
-    width: 100%;
-    max-width: none;
-    margin-bottom: 12px;
+  .hero-section {
+    min-height: 230px;
   }
 
-  .subject-search-form .main-button {
-    width: 100%;
+  .hero-copy {
+    padding: 32px 24px;
   }
 
-  /* 認証フォーム */
-  .subject-auth-input {
+  /* 新着情報 */
+  .news-section {
+    padding: 18px;
+  }
+
+  .news-list li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 7px 10px;
+    padding: 16px 0;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  .news-list li:first-child {
+    padding-top: 4px;
+  }
+
+  .news-list li:last-child {
+    padding-bottom: 4px;
+    border-bottom: 0;
+  }
+
+  .news-list time {
+    grid-column: 1;
+    grid-row: 1;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .news-list .news-category {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    margin: 0;
+    padding: 1px 8px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .news-list li > a,
+  .news-list li > span:not(.news-category) {
+    grid-column: 1 / -1;
+    grid-row: 2;
     display: block;
+    font-size: 15px;
+    line-height: 1.7;
   }
 
-  .subject-auth-input input {
-    width: 100%;
-    max-width: none;
-  }
-
-  .subject-auth-input .main-button {
-    width: 100%;
-    margin-top: 12px;
-  }
-
-  /* アンケート */
-  .survey-container,
-  .intro-box,
-  .ending-box,
+  /* エンディング */
   .ending-container {
+    width: 92%;
+    padding: 60px 0 80px;
+  }
+
+  .ending-section {
+    margin-bottom: 55px;
+  }
+
+  .ending-section p {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .ending-title {
+    margin-bottom: 32px;
+  }
+
+  .intro-box,
+  .ending-box {
     width: 92%;
   }
 
+  /* タップ領域 */
+  button,
+  .main-button,
+  .quick-links a,
+  .town-banner,
+  .document-link {
+    min-height: 44px;
+  }
+}
+
+/* ---------- アンケート・対象者検索 ---------- */
+
+@media screen and (max-width: 600px) {
+  .survey-container {
+    width: 92%;
+    padding: 55px 0 75px;
+  }
+
+  .survey-title {
+    font-size: 29px;
+  }
+
+  .survey-description {
+    font-size: 16px;
+  }
+
   .survey-birthday {
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
@@ -168,26 +235,35 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .survey-radio {
+  .survey-radio,
+  .survey-submit {
     width: 100%;
     min-width: 0;
   }
 
-  .survey-submit {
-    width: 100%;
+  .subject-auth-input {
+    display: block;
   }
 
-  /* タップしやすい最低サイズ */
-  button,
-  .main-button,
-  .quick-links a,
-  .town-banner,
-  .document-link {
-    min-height: 44px;
+  .subject-auth-input input,
+  .subject-search-input {
+    width: 100%;
+    max-width: none;
+  }
+
+  .subject-auth-input .main-button,
+  .subject-search-form .main-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .subject-search-input {
+    margin-bottom: 12px;
   }
 }
 
-/* 小型スマートフォン */
+/* ---------- 小型スマートフォン ---------- */
+
 @media screen and (max-width: 480px) {
   .container,
   .town-main {
@@ -207,8 +283,16 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .hero-section {
+    min-height: 210px;
+  }
+
   .hero-copy {
     padding: 28px 20px;
+  }
+
+  .hero-copy p {
+    font-size: 14px;
   }
 
   .important-heading {
@@ -242,6 +326,14 @@ a {
     padding: 16px;
   }
 
+  .town-info-card {
+    padding: 20px 14px;
+  }
+
+  .town-info-card strong {
+    font-size: 24px;
+  }
+
   .survey-birthday {
     grid-template-columns: 1fr;
   }
@@ -271,71 +363,5 @@ a {
   .ending-section p,
   .intro-text {
     font-size: 15px;
-  }
-}
-
-/* ==============================
-   スマホ版・新着情報
-================================ */
-@media screen and (max-width: 700px) {
-  .news-section {
-    padding: 18px;
-  }
-
-  .news-list {
-    margin: 0;
-    padding: 0;
-  }
-
-  .news-list li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 7px 10px;
-    padding: 16px 0;
-    border-bottom: 1px solid #d5d5d5;
-  }
-
-  .news-list li:first-child {
-    padding-top: 4px;
-  }
-
-  .news-list li:last-child {
-    padding-bottom: 4px;
-    border-bottom: 0;
-  }
-
-  .news-list time {
-    grid-column: 1;
-    grid-row: 1;
-    color: #666;
-    font-size: 13px;
-    line-height: 1.5;
-    white-space: nowrap;
-  }
-
-  .news-list .news-category {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: start;
-    margin: 0;
-    padding: 1px 8px;
-    font-size: 12px;
-    line-height: 1.5;
-    white-space: nowrap;
-  }
-
-  .news-list li > a,
-  .news-list li > span:not(.news-category) {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: block;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .news-list li > a {
-    font-weight: 600;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
   }
 }

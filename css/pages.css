@@ -1,4 +1,74 @@
 /* ==============================
+   通常ページ
+================================ */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.menu-grid a {
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  text-decoration: none;
+}
+
+.page-update {
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  background: #f4f1e9;
+  color: #555;
+  font-size: 14px;
+}
+
+.page-update p {
+  margin: 4px 0;
+}
+
+.note {
+  margin-top: 18px;
+  color: #666;
+  font-size: 13px;
+}
+
+/* ==============================
+   通常テーブル
+================================ */
+
+.history-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.history-table th {
+  width: 180px;
+  padding: 14px;
+  background: #f3f5f4;
+  border: 1px solid #d8dfdb;
+  text-align: left;
+}
+
+.history-table td {
+  padding: 14px;
+  border: 1px solid #d8dfdb;
+}
+
+.missing-year th,
+.missing-year td {
+  background: #fff7d9;
+}
+
+.missing-year td {
+  color: #8b0000;
+  font-weight: bold;
+}
+
+/* ==============================
    議会資料一覧
 ================================ */
 
@@ -18,8 +88,8 @@
 .council-table td {
   padding: 12px 20px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
   white-space: nowrap;
+  border-bottom: 1px solid #ddd;
 }
 
 .council-table th {
@@ -35,11 +105,11 @@
 
 .council-table td:nth-child(3) {
   font-family: Consolas, monospace;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
 /* ==============================
-   hidden
+   隠し表示
 ================================ */
 
 .hidden-note {
@@ -54,57 +124,38 @@
 }
 
 /* ==============================
-   Responsive
+   問い合わせページ
 ================================ */
 
-@media (max-width: 768px) {
-
-  .council-table {
-    min-width: 560px;
-  }
-
-  .council-table th,
-  .council-table td {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-
-  .year-row td {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-
-}
-
 .button-area {
-    margin-top: 24px;
-    text-align: center;
+  margin-top: 24px;
+  text-align: center;
 }
 
 .btn-disabled,
 .btn-primary {
-    display: inline-block;
-    width: 260px;
-    padding: 14px 0;
-    font-size: 16px;
-    border-radius: 4px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
+  display: inline-block;
+  width: 260px;
+  padding: 14px 0;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: 4px;
 }
 
 .btn-disabled {
-    background: #d9d9d9;
-    color: #777;
-    cursor: not-allowed;
+  background: #d9d9d9;
+  color: #777;
+  cursor: not-allowed;
 }
 
 .btn-primary {
-    background: #0068b7;
-    color: #fff;
-    transition: background .2s;
+  background: #0068b7;
+  color: #fff;
+  transition: background 0.2s;
 }
 
 .btn-primary:hover {
-    background: #00508c;
+  background: #00508c;
 }

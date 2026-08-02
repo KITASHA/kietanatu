@@ -151,25 +151,7 @@ body.ending-page {
 }
 
 /* スマホ */
-@media screen and (max-width: 700px) {
-  .ending-container {
-    width: 88%;
-    padding: 60px 0 80px;
-  }
 
-  .ending-section {
-    margin-bottom: 55px;
-  }
-
-  .ending-section p {
-    margin-bottom: 20px;
-    font-size: 15px;
-  }
-
-  .ending-title {
-    margin-bottom: 32px;
-  }
-}
 
 /* ==============================
    プレイ前アンケート
@@ -349,42 +331,7 @@ body.survey-page {
   font-size: 12px;
   line-height: 1.7;
 }
-@media screen and (max-width: 600px) {
-  .survey-container {
-    width: 88%;
-    padding: 55px 0 75px;
-  }
 
-  .survey-title {
-    font-size: 29px;
-  }
-
-  .survey-description {
-    font-size: 16px;
-  }
-
-  .survey-birthday {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .survey-field select {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .survey-radio-list {
-    display: grid;
-  }
-
-  .survey-radio {
-    width: 100%;
-  }
-
-  .survey-submit {
-    width: 100%;
-  }
-}
 
 /* ==============================
    対象者管理台帳
@@ -466,21 +413,7 @@ body.survey-page {
   font-size: 14px;
 }
 
-@media screen and (max-width: 600px) {
-  .subject-auth-input {
-    display: block;
-  }
 
-  .subject-auth-input input {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .subject-auth-input .main-button {
-    width: 100%;
-    margin-top: 12px;
-  }
-}
 .subject-search-form {
   margin-top: 24px;
   font-family: var(--font-sans);
@@ -529,10 +462,3 @@ body.survey-page {
   line-height: 1.6;
 }
 
-@media screen and (max-width: 600px) {
-  .subject-search-input,
-  .subject-search-form .main-button {
-    width: 100%;
-    max-width: none;
-  }
-}
